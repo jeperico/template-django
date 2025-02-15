@@ -8,4 +8,4 @@ class UserAdmin(admin.ModelAdmin):
   list_filter = ['created_at', 'updated_at']
   readonly_fields = ['created_at', 'updated_at']
 
-  admin.site.register(User, UserAdmin)
+admin.site.register(User, UserAdmin)

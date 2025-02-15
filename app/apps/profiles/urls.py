@@ -1,6 +1,6 @@
 from apps.profiles import api
 from django.urls import include, path
-from rest_framework.routers import routers
+from rest_framework import routers
 
 
 router = routers.DefaultRouter()
