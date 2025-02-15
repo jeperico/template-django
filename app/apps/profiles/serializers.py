@@ -16,15 +16,15 @@ class UserRegisterSerializer(serializers.ModelSerializer):
     required=True,
     validators=[validate_password],
   )
-  
+
   class Meta:
     model = User
-    fields = ['id', 'name', 'email', 'password', 'created_at', 'updated_at'], 
+    fields = ['id', 'name', 'email', 'password', 'created_at', 'updated_at']
     extra_kwargs = {
       'password': {'write_only': True},
       'id': {'read_only': True},
     }
-  
+
   def create(self, validated_data):
     with transaction.atomic():
       password = validated_data.pop('password')
