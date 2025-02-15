@@ -1,7 +1,9 @@
+from rest_framework_simplejwt.views import TokenObtainPairView
 from .models import User
 from .serializers import (
   UserSerializer,
   UserRegisterSerializer,
+  ProfileTokenObtainPairSerializer,
 )
 from rest_framework import (
   generics,
@@ -49,3 +51,6 @@ class UserRegisterView(
   def perform_create(self, serializer):
     return super().perform_create(serializer)
 
+
+class ProfileTokenObtainPairView(TokenObtainPairView):
+  serializer_class = ProfileTokenObtainPairSerializer

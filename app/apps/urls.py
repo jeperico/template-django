@@ -4,7 +4,8 @@ from drf_spectacular.views import (
   SpectacularRedocView,
   SpectacularSwaggerView,
 )
-
+from rest_framework_simplejwt.views import TokenRefreshView, TokenVerifyView
+from .profiles.api import ProfileTokenObtainPairView
 
 urlpatterns = [
   path(
@@ -23,4 +24,7 @@ urlpatterns = [
     name='redoc'
   ),
   path('profiles/', include('apps.profiles.urls')),
+  path("token/", ProfileTokenObtainPairView.as_view(), name="token_obtain_pair"),
+  path("token/refresh/", TokenRefreshView.as_view(), name="token_refresh"),
+  path("token/verify/", TokenVerifyView.as_view(), name="token_verify"),
 ]
