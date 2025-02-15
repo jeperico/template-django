@@ -5,11 +5,12 @@ from drf_spectacular.views import (
   SpectacularSwaggerView,
 )
 
+
 urlpatterns = [
   path(
     'schema/',
     SpectacularAPIView.as_view(),
-    name='schema',
+    name='schema'
   ),
   path(
     'schema/swagger/',
@@ -21,8 +22,5 @@ urlpatterns = [
     SpectacularRedocView.as_view(url_name='schema'),
     name='redoc'
   ),
-  # path(
-  #   'profiles/',
-  #   include('apps.profiles.urls')
-  # ),
+  # path('profiles/', include('apps.profiles.urls')),
 ]
